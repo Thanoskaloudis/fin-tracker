@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators  } from 'redux';
 import { actionCreators } from './state/index';
+import Dashboard from './components/Dashboad/Dashboard';
 
 function App() {
   const  state = useSelector(state => state)
@@ -16,8 +17,7 @@ function App() {
     <div className="App">
       <div className="AppGlass">
         <Sidebar />
-        <div></div>
-        <div></div>
+        <Dashboard />
       </div>
     </div>
   );
