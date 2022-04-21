@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../state/index';
+import { DataGrid } from '@mui/x-data-grid';
+import './Transactions.scss';
 
 const Transactions = () => {
   const transactions = useSelector(
@@ -15,19 +17,65 @@ const Transactions = () => {
 
   useEffect(() => {
     fetchTransactions();
-    console.log(transactions);
+    console.log(transactions.length)
   }, []);
 
+  const columns = [
+    {
+      field: 'transaction_date',
+      headerName: 'Date',
+      width: 200,
+      editable: false,
+    },
+    {
+      field: 'id',
+      headerName: 'Reference Number',
+      width: 160,
+      editable: false,
+    },
+    {
+      field: 'description',
+      headerName: 'Description',
+      width: 180,
+      editable: false,
+    },
+    {
+      field: 'amount',
+      headerName: 'Amount',
+      editable: false,
+      width: 100,
+    },
+  ];
+
+  const rows = transactions.map((transaction) => {
+    const converted = {};
+
+    converted.transaction_date = new Date(transaction.transaction_date);
+    converted.id = transaction.id;
+    converted.description = transaction.description;
+    converted.amount =
+      transaction.type === 'out'
+        ? `- £${transaction.amount}`
+        : `+ £${transaction.amount}`;
+
+    return converted;
+  });
+
   return (
-    <div>
-      {transactions.map((transaction) => (
-        <div
-          className="station"
-          key={transaction.transaction_id}
-        >
-          {transaction.type}
-        </div>
-      ))}
+    <div className="transactions">
+      <h3>Recent Transactions</h3>
+      <div style={{ height: 370, width: '80%' }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          loading={!transactions.length}
+          style={{
+            background: 'white',
+            boxShadow: '0px 13px 20px 0px #80808029',
+          }}
+        />
+      </div>
     </div>
   );
 };
