@@ -17,7 +17,6 @@ const Transactions = () => {
 
   useEffect(() => {
     fetchTransactions();
-    console.log(transactions.length)
   }, []);
 
   const columns = [
@@ -25,6 +24,7 @@ const Transactions = () => {
       field: 'transaction_date',
       headerName: 'Date',
       width: 200,
+      type: 'date',
       editable: false,
     },
     {
@@ -50,7 +50,7 @@ const Transactions = () => {
   const rows = transactions.map((transaction) => {
     const converted = {};
 
-    converted.transaction_date = new Date(transaction.transaction_date);
+    converted.transaction_date = transaction.transaction_date;
     converted.id = transaction.id;
     converted.description = transaction.description;
     converted.amount =
@@ -64,11 +64,12 @@ const Transactions = () => {
   return (
     <div className="transactions">
       <h3>Recent Transactions</h3>
-      <div style={{ height: 370, width: '80%' }}>
+      <div style={{ height: 270, width: '80%' }}>
         <DataGrid
           rows={rows}
           columns={columns}
-          pageSize={5}
+          pageSize={4}
+          rowHeight={40}
           loading={!transactions.length}
           style={{
             background: 'white',

@@ -1,19 +1,20 @@
 const initialState = {
-  transactions: [],
+  invoices: [],
   error: '',
 };
 
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'fetchTransactionsSuccess':
+    case 'fetchInvoicesSuccess':
       console.log(action.payload);
       return {
-        transactions: action.payload,
+        invoices: action.payload,
         error: '',
       };
-    case 'fetchTransactionsFailure':
+    case 'fetchInvoicesFailure':
       return {
-        transactions: '',
+        invoices: '',
         error: action.payload,
       };
     default:

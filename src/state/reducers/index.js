@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import transactionsReducer from './transactionsReducer';
+import invoicesReducer from './invoicesReducer';
 
 const reducers = combineReducers({
-  transactions: transactionsReducer
+  transactions: transactionsReducer,
+  invoices: invoicesReducer,
 }); 
 
 export default reducers;
