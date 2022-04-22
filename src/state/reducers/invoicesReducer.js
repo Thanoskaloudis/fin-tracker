@@ -7,16 +7,18 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'fetchInvoicesSuccess':
-      console.log(action.payload);
-      return {
-        invoices: action.payload,
-        error: '',
-      };
+      return state.invoices = action.payload;
     case 'fetchInvoicesFailure':
-      return {
-        invoices: '',
-        error: action.payload,
-      };
+      return state.error = action.payload;
+    case 'updateInvoiceField':
+      console.log(state, action.payload);
+      return state.map(invoice => {
+        let temp = Object.assign({}, invoice);
+        if(temp.id === action.payload) {
+          temp[action.field] = action.value
+        }
+        return temp;
+      })
     default:
       return state;
   }

@@ -26,6 +26,15 @@ export const fetchInvoicesFailure = (error) => {
   };
 };
 
+export const updateInvoiceField = (id, field, value) => {
+  return {
+    type: 'updateInvoiceField',
+    payload: id,
+    field,
+    value,
+  };
+};
+
 export const fetchTransactions = () => {
   return (dispatch) => {
     fetch('transactions.json', {})
@@ -58,3 +67,9 @@ export const fetchInvoices = () => {
   };
 };
 
+
+export const updateInvoice = (id, field, value) => {
+  return (dispatch) => {
+    dispatch(updateInvoiceField(id, field, value))
+  };
+};

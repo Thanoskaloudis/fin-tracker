@@ -10,7 +10,7 @@
     "id": "235431",
     "client": "Mark",
     "amount": 12.34,
-    "type": "receive",
+    "type": "refund",
     "invoice_date": "2022-04-04 21:46:25"
   },
   {
