@@ -55,8 +55,8 @@ const Transactions = () => {
     converted.description = transaction.description;
     converted.amount =
       transaction.type === 'out'
-        ? `- £${transaction.amount}`
-        : `+ £${transaction.amount}`;
+        ? `-£${transaction.amount}`
+        : `+£${transaction.amount}`;
 
     return converted;
   });

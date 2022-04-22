@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../state/index';
+import clsx from 'clsx';
 import { DataGrid } from '@mui/x-data-grid';
 import './Invoices.scss';
 
@@ -17,7 +18,7 @@ const Invoices = () => {
 
   const checkStatus = (invoice) => {
     const potentialTransaction = transactions.find((transaction) => {
-      if(parseInt(invoice.amount) === parseInt(transaction.amount)) {
+      if(parseFloat(invoice.amount) === parseFloat(transaction.amount)) {
         return transaction
       } 
     });
@@ -53,8 +54,8 @@ const Invoices = () => {
         converted.client = invoice.client;
         converted.amount =
           invoice.type === 'refund'
-            ? `- £${invoice.amount}`
-            : `+ £${invoice.amount}`;
+            ? `-£${invoice.amount}`
+            : `+£${invoice.amount}`;
         converted.status = checkStatus(invoice);
         return converted;
       }));
@@ -86,7 +87,7 @@ const Invoices = () => {
       headerName: 'Amount',
       type: 'number',
       editable: true,
-      width: 100,
+      width: 100
     },
     {
       field: 'status',
