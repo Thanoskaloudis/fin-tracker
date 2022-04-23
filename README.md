@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Fin Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+An application that helps self-employees to track their income and expenses in order to give them better insights of their monetary situation, so they can focus on what they love doing without worrying about their finances!
 
-In the project directory, you can run:
+## Set up
+1. Make sure Node and yarn are installed from the terminal. Then run:
 
-### `yarn start`
+    ```
+    yarn install
+    ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Start the project.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    ```
+    yarn start
+    ```
 
-### `yarn test`
+3. Now you can visit http://localhost:3000 to view your server
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Notes
 
-### `yarn build`
+* Mock up data have been created under ./Public folder to be used as local API. However this implementation works as a prototype for server-side APIs as well.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* This application is being designed to have a cental state using the React Redux library. However, my expierence with Redux is limited, so feedback will be welcomed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Widgets
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Transactions
 
-### `yarn eject`
+This widget has been created to handle n number of transactions based on data received from an API (local in this example). Each transaction is shown in a data grid table with information like id, date, amount, etc.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Invoives
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is an interactive widget that has been created with the same logic as the Transactions widget, but with the extra functionality that let the user update some of the invoice information. The widget sends info to the central state and updates the UI(through actions and reduces). 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Summary
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This widget has account information like total amount and budget. In this widget you can set a budget and check if your total amount is above(green) or below (orange) your budget. This widget also calculates the number of transactions and invoices in the last 30 days. Updating invoice widget will update this widget as well.
 
-## Learn More
+## Comments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Things that have not been implemented due to time constraints:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* This application is NOT responsive. However, it has been designed to be a scalable product.
 
-### Code Splitting
+* Creating new invoices.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  

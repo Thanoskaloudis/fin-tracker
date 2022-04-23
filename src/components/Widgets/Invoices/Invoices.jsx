@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../../state/index';
-import clsx from 'clsx';
 import { DataGrid } from '@mui/x-data-grid';
 import './Invoices.scss';
 
@@ -16,6 +15,10 @@ const Invoices = () => {
     dispatch
   );
 
+  /**
+   * Checks and Sets the status of an invoice based on transaction amount, id and date.
+   * @param {IvoiceState} invoice invoice state
+   */
   const checkStatus = (invoice) => {
     const potentialTransaction = transactions.find((transaction) => {
       if(parseFloat(invoice.amount) === parseFloat(transaction.amount)) {
@@ -31,6 +34,11 @@ const Invoices = () => {
     }
   };
 
+  /**
+   * Dispatch an action to update invoice data, with input from the user 
+   * @param {GridStopCellEditModeParams} params info from the cell
+   * @param {CellEvent} event cell event
+   */
   const onCellUpdated = (params, event) => {
     let id = params.id
     let field = params.field;
@@ -44,7 +52,6 @@ const Invoices = () => {
   }, []);
 
   useEffect(() => {
-    console.log(invoices);
     if(invoices.length){
       setRows(invoices.map((invoice) => {
         const converted = {};

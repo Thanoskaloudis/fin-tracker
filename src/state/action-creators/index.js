@@ -58,6 +58,8 @@ export const changeAccountBudget = (value) => {
 
 export const fetchTransactions = () => {
   return (dispatch) => {
+    // fetch mock up data
+    // TODO: Get data from an api
     fetch('transactions.json', {})
       .then(response =>{
         return response.json();
@@ -74,6 +76,8 @@ export const fetchTransactions = () => {
 
 export const fetchInvoices = () => {
   return (dispatch) => {
+    // fetch mock up data
+    // TODO: Get data from an api
     fetch('invoices.json', {})
       .then(response =>{
         return response.json();
@@ -90,6 +94,8 @@ export const fetchInvoices = () => {
 
 export const fetchAccount = () => {
   return (dispatch) => {
+    // fetch mock up data
+    // TODO: Get data from an api
     fetch('account.json', {})
       .then(response =>{
         return response.json();
@@ -103,7 +109,6 @@ export const fetchAccount = () => {
       });
   };
 };
-
 
 export const updateInvoice = (id, field, value) => {
   return (dispatch) => {

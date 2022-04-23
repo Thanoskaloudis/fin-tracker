@@ -17,6 +17,9 @@ const Summary = () => {
     dispatch
   );
 
+  /**
+   * Set total amount color based on the badget.
+   */
   const checkBudget = () => {
     if(account.total_amount > account.budget) {
       setColorText('#77DD77');
@@ -25,13 +28,11 @@ const Summary = () => {
     } else if(account.total_amount < 0) {
       setColorText('#ff6961');
     }
-
-    let now = new Date();
-    now.setDate(now.getDate() - 30);
-    let month = now.toISOString().split('T')[0];
-    console.log(month);
   };
-
+    
+  /**
+   * Set the number of invoices and transactions for the last 30 days.
+   */
   const checkMonthlyData = () => {
     const now = new Date();
     now.setDate(now.getDate() - 30);
@@ -58,6 +59,10 @@ const Summary = () => {
     setMonthlyTransactions(numTransactions);
   };
 
+  /**
+   * Handles Enter Key event and dispatch an action to update acount's budget.
+   * @param {KeyboardEvent} e keyboard event
+   */
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       setBudget(parseFloat(e.target.value));
