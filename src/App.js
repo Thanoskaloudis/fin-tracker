@@ -4,8 +4,8 @@ import Dashboard from './components/Dashboad/Dashboard';
 
 function App() {
   return (
-    <div className="App">
-      <div className="AppGlass">
+    <div className="app">
+      <div className="app-glass">
         <Sidebar />
         <Dashboard />
       </div>

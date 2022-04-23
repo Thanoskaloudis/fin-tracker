@@ -6,9 +6,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import './Transactions.scss';
 
 const Transactions = () => {
-  const transactions = useSelector(
-    (state) => state.transactions.transactions
-  );
+  const transactions = useSelector((state) => state.transactions.transactions);
   const dispatch = useDispatch();
   const { fetchTransactions } = bindActionCreators(
     actionCreators,
@@ -62,7 +60,7 @@ const Transactions = () => {
   });
 
   return (
-    <div className="transactions">
+    <div className="transactions" style={{width: "51rem"}}>
       <h3>Recent Transactions</h3>
       <div style={{ height: 270, width: '80%' }}>
         <DataGrid
@@ -73,7 +71,8 @@ const Transactions = () => {
           loading={!transactions.length}
           style={{
             background: 'white',
-            boxShadow: '0px 13px 20px 0px #80808029',
+            boxShadow: '0 0 10px rgba(0, 0, 0, 0.262)',
+            borderRadius: '20px'
           }}
         />
       </div>

@@ -99,7 +99,7 @@ const Invoices = () => {
   ];
 
   return (
-    <div>
+    <div className="invoices" style={{width: "51rem"}}>
       <h3>Invoices</h3>
       <div style={{ height: 230, width: '87%' }}>
         <DataGrid
@@ -111,7 +111,8 @@ const Invoices = () => {
           onCellEditStop={onCellUpdated}
           style={{
             background: 'white',
-            boxShadow: '0px 13px 20px 0px #80808029',
+            boxShadow: '0 0 10px rgba(0, 0, 0, 0.262)',
+            borderRadius: '20px'
           }}
         />
       </div>

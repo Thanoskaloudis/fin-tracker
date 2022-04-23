@@ -6,7 +6,6 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'fetchTransactionsSuccess':
-      console.log(action.payload);
       return {
         transactions: action.payload,
         error: '',
@@ -16,7 +15,7 @@ const reducer = (state = initialState, action) => {
         transactions: '',
         error: action.payload,
       };
-    default:
+      default:
       return state;
   }
 };
